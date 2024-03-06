@@ -1,6 +1,18 @@
 pipeline {
     agent none
-    stages {
+    triggers {
+        GenericTrigger(
+         genericVariables: [
+          [key: 'ref', value: '$.ref']
+         ],
+         causeString: 'Triggered on $ref',
+         regexpFilterExpression: '',
+         regexpFilterText: '',
+         printContributedVariables: true,
+         printPostContent: true
+        )
+      }
+        stages {
         stage('Run Tests') {
             parallel {
                 stage('Test On Windows') {
