@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    privileged: true
+    user: root
+    ports:
+      - 8080:8080
+      - 50000:50000
+    volumes:
+      - /home/${myname}/jenkins_compose/jenkins_configuration:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+        
+  agent:
+    image: jenkins/ssh-agent:jdk11
+    container_name: agent
+    privileged: true
+    user: root
+    expose:
+      - 22
+    environment:
+      - JENKINS_AGENT_SSH_PUBKEY=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC7SfKpV/AvjeJdIXhpdMXyQUQm0ooJ0Q83VrZbnAqvEqn074UkW+X/OYD298c2SOr6ZewGJgI1EZKMAHChFAWa/uk6+XUFbU82vnkIXAdW1AsHIoEZmWuc/Dyd6JVq5Jr2msG7TGyXBSfISnXuY+I4ea1vMJmJWfoep3RsyE9uezew8OrJwrR+LWdmJNT/T39GdrogaWxl7VpiabWjWAipGFDp+sHbezzX+NMW8ld40KXG/bRfC9wGu7JRh0H9KkMoNNh+e8D15U06WZFgNEjkb0N1jnWHCTtkBLkMPMvjnqfyjIiI7KUXdIsYY1ibMOXgd/Qt4CbJbXzKMwhSkWe8gTIj0hrCEa3u9gqnCSSlamkGZ+yYHBj0Yh+t7gWKTYmSDNbQHsOzAO6F2Yzcnqo5qWNCQ9H+++hGx8IolXbpyKw9aCJUDgzq3lZMAVrLaXeVMEahd88TmT+iKNS5L450fA3uHf8RDXdYN8/Hz89RgIcLPbWvJW+j08oSS2oTTJM= hovo@montik
