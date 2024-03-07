@@ -3,7 +3,7 @@ name: Merge Pipeline
 on:
   push:
     branches:
-      - master # Adjust branch name as needed
+      - main
 
 jobs:
   merge_trigger:
