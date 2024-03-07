@@ -1,0 +1,15 @@
+name: Merge Pipeline
+
+on:
+  push:
+    branches:
+      - master # Adjust branch name as needed
+
+jobs:
+  merge_trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Add additional steps here as needed, such as running tests, building, deploying, etc.
