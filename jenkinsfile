@@ -1,15 +1,15 @@
-name: Merge Pipeline
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  merge_trigger:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      # Add additional steps here as needed, such as running tests, building, deploying, etc.
+pipeline {
+    agent none
+    stages {
+        stage('Example') {
+            agent any
+            options {
+                // Timeout counter starts BEFORE agent is allocated
+                timeout(time: 1, unit: 'SECONDS')
+            }
+            steps {
+                echo 'Hello World'
+            }
+        }
+    }
+}
