@@ -11,4 +11,13 @@ pipeline {
              token: 'test',
              tokenCredentialId: '' )
           }
+stages{
+    stage('check branch name'){
+        steps{
+            echo 'hello world'
+            echo env.base'
+        }
+    }
 }
+}
+    
