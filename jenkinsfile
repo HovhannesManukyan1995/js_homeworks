@@ -15,7 +15,7 @@ stages{
     stage('check branch name'){
         steps{
             echo 'hello world'
-            echo env.base'
+            echo env.base
         }
     }
 }
