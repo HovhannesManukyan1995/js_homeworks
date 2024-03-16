@@ -102,3 +102,61 @@ let employee1=new FullTimeEmployee("John",1,8)
 employee1.calculateSalary();
 let employee2=new PartTimeEmployee("Jack",2,8)
 employee2.calculateSalary()
+
+
+
+
+
+// 17
+class Student {
+    private name: string;
+    protected studentId: number;
+
+    constructor(name: string, studentId: number){
+        this.name=name;
+        this.studentId=studentId;
+        };
+    public displayInfo(): void {
+        console.log(this.name,this.studentId)
+    };
+}
+let student=new Student("john",1)
+student.displayInfo();
+
+
+//18
+class BankAccount {
+    private accountNumber: string;
+    protected balance: number;
+    constructor(accountNumber: string){
+        this.accountNumber = accountNumber;
+        this.balance = 0;
+    }
+    public deposit(amount: number): void{
+        this.balance+=amount
+        console.log("your ballance deposit=",this.balance)
+    }
+    public withdraw(amount: number):void{
+        this.balance-=amount
+        console.log("your balance withdraw =", this.balance)
+    }
+}
+let john=new BankAccount("John")
+john.deposit(50)
+john.withdraw(20)
+
+
+//19
+class Car{
+    protected make: string;
+    protected model: string;
+    constructor(make: string, model: string){
+        this.make = make;
+        this.model = model;
+    }
+    public getCarInfo(): string{
+        return `your car is ${this.make} with model ${this.model}`
+    }
+}
+let car= new Car("mers","S140")
+console.log(car.getCarInfo())
