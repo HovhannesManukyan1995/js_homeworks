@@ -194,3 +194,32 @@ Counter.increment();
 Counter.increment();
 
 console.log(Counter.getCount())
+
+//22
+
+class colculator{
+    static add(num: number, num2: number):number{
+        return num+num2
+    }
+
+    static substract(num: number, num2: number):number{
+        return num-num2
+    };
+
+    static multiply(num: number, num2: number):number{
+        return num*num2
+    };
+
+    static divide(num: number, num2: number):any{
+      if(num === 0 || num2 ===0){
+        return "divide with 0 not allowed"
+      }else{
+        return num/num2
+      }
+    }
+}
+console.log(colculator.add(5,2));
+console.log(colculator.substract(5,2));
+console.log(colculator.multiply(5,2));
+console.log(colculator.divide(5,2));
+console.log(colculator.divide(5,0));
