@@ -161,7 +161,7 @@ class Car{
 let car= new Car("mers","S140")
 console.log(car.getCarInfo())
 
-
+//20
 class Animal{
     protected name: string;
     private age: number;
@@ -176,3 +176,21 @@ class Animal{
 }
 let horse = new Animal("buyan",4)
 console.log(horse.introduce())
+
+//21
+class Counter{
+    static count: number = 0;
+
+    static increment():void {
+        Counter.count++
+    }
+    static getCount(): number{
+        return Counter.count
+    }
+}
+
+Counter.increment();
+Counter.increment();
+Counter.increment();
+
+console.log(Counter.getCount())
