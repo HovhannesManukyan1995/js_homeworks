@@ -223,3 +223,25 @@ console.log(colculator.substract(5,2));
 console.log(colculator.multiply(5,2));
 console.log(colculator.divide(5,2));
 console.log(colculator.divide(5,0));
+
+//23
+
+class Singleton {
+  private static instance: Singleton | null = null;
+
+  private constructor() {
+    // Private constructor to prevent external instantiation
+  }
+
+  static getInstance(): Singleton {
+    if (!Singleton.instance) {
+      Singleton.instance = new Singleton();
+    }
+    return Singleton.instance;
+  }
+}
+
+// Testing the Singleton pattern
+const instance1 = Singleton.getInstance();
+const instance2 = Singleton.getInstance();
+console.log(instance1 === instance2); 
