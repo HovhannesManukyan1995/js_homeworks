@@ -160,3 +160,19 @@ class Car{
 }
 let car= new Car("mers","S140")
 console.log(car.getCarInfo())
+
+
+class Animal{
+    protected name: string;
+    private age: number;
+    constructor(name: string, age: number){
+        this.name = name
+        this.age = age
+    }
+    public introduce(): string {
+        return `Name of animal is ${this.name} and age is ${this.age}`
+    }
+    
+}
+let horse = new Animal("buyan",4)
+console.log(horse.introduce())
