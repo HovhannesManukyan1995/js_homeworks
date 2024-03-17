@@ -245,3 +245,31 @@ class Singleton {
 const instance1 = Singleton.getInstance();
 const instance2 = Singleton.getInstance();
 console.log(instance1 === instance2); 
+
+//24
+
+class utility{
+    static formateDate():void{
+        const time = new Intl.DateTimeFormat('en-US', {
+            timeZone: "Asia/Yerevan",
+            dateStyle: 'full',
+            timeStyle: 'long'
+          }).format(new Date);
+        console.log(time)
+    }
+    static randomestring(leng: number):void{
+        const char = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let result = "";
+        for(let i=0;i<leng;i++){
+            result+=char.charAt(Math.floor(Math.random() * char.length));
+        
+        }console.log(result)
+    }
+    static capitalize(str: string):void{
+        let a: string = str[0].toUpperCase() + str.slice(1);
+        console.log(a)
+    }
+}
+let time=utility.formateDate();
+let str=utility.randomestring(5);
+let cap=utility.capitalize("hello world");
